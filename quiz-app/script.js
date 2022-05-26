@@ -10,7 +10,7 @@ const quizData = [
         question: 'what is the best programming language?',
         a: 'Java',
         b: 'C',
-        C: 'Phython',
+        C: 'Go',
         d: 'Javascript',
         correct: 'a'
     }, {
@@ -45,6 +45,7 @@ const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0;
+let score = 0;
 
 loadQuiz();
 
@@ -62,16 +63,55 @@ function loadQuiz(){
     
 }
 
-submitBtn.addEventListener('click', () =>{
-    currentQuiz++
 
-    if(currentQuiz < quizData.length){
-        loadQuiz()
-    } else{
-        // show results
-        alert('you are finished!')
+
+function getselected(){
+    const answerEls = document.querySelectorAll('.answer')
+
+    let answer = undefined
+
+    answerEls.forEach((answerEl) =>{
+        if(answerEl.checked){
+            answer = answerEl.id
+        
+           }
+        
+        })
+       
+     return answer
     }
 
-    loadQuiz();
+
+submitBtn.addEventListener('click', () =>{
+
+    const answer = getselected();
+
+    console.log(answer)
+
+    if(answer){
+
+        if(answer === quizData[currentQuiz].correct){
+            score++
+        }
+        currentQuiz++
+
+        if(currentQuiz < quizData.length){
+            loadQuiz()
+    } else{
+            // show results
+        alert('you are finished!')
+    }
+    }
+    
+
+    
+
+
+    
+    
+    
+
+  
+    
 }
 )
