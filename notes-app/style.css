@@ -35,17 +35,19 @@ body {
 }
 
 .notes .main {
-	display: none;
-	height: 100%;
+	height: 400px;
 	width: 100%;
+	overflow: hidden;
+	background-color: #fff;
 }
 
 .notes textarea {
 	font-family: inherit;
 	border: none;
-	height: 100%;
+	height: 400px;
 	width: 100%;
 	outline: none;
+	font-size: 1.2rem;
 }
 
 .notes .hidden {
