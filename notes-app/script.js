@@ -40,7 +40,9 @@ function addNewNote(text = '') {
 		textArea.classList.toggle('hidden');
 	});
 
-	deleteBtn.addEventListener('click', () => {
+	deleteBtn.addEventListener('click', (e) => {
+		let info = e.currentTarget.parentElement;
+		info.innerText = '';
 		note.remove();
 	});
 
@@ -57,9 +59,7 @@ function addNewNote(text = '') {
 
 function UpdateLS() {
 	const notesText = document.querySelectorAll('textarea');
-
 	const notes = [];
-
 	notesText.forEach((note) => {
 		notes.push(note.value);
 	});
