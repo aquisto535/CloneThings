@@ -44,6 +44,7 @@ function addNewNote(text = '') {
 		let info = e.currentTarget.parentElement;
 		info.innerText = '';
 		note.remove();
+		UpdateLS();
 	});
 
 	textArea.addEventListener('input', (e) => {
