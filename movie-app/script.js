@@ -10,10 +10,25 @@ async function getmoives() {
 	console.log(respData);
 
 	respData.results.forEach((movie) => {
-		const img = document.createElement('img');
-		img.src = IMGPATH + movie.poster_path;
+		const { poster_path, title, vote_average } = movie;
+		const movieEl = document.createElement('div');
 
-		document.body.appendChild(img);
+		movieEl.classList.add('movie');
+
+		movieEl.innerHTML = `	
+		
+		<img
+			src="${IMGPATH + poster_path}"
+			alt="${title}"
+		/>
+		<div class="movie-info">
+			<h3>${title}</h3>
+			<span>${vote_average}</span>
+		</div>
+	
+		`;
+
+		document.body.appendChild(movieEl);
 	});
 
 	return respData;
