@@ -15,12 +15,40 @@ main {
 	flex-wrap: wrap;
 }
 
+header {
+	display: flex;
+	justify-content: flex-end;
+	background-color: #373b69;
+	padding: 1rem;
+}
+
+.search {
+	background-color: transparent;
+	color: #fff;
+	border: 2px solid #22254b;
+	border-radius: 50px;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-family: inherit;
+}
+
+.search::placeholder {
+	color: #7378c5;
+}
+
+.search:focus {
+	background-color: #22254b;
+	outline: none;
+}
+
 .movie {
 	background-color: #373b69;
 	border-radius: 3px;
 	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 	width: 300px;
 	margin: 2rem;
+	overflow: hidden;
+	position: relative;
 }
 
 .movie img {
@@ -58,4 +86,25 @@ main {
 
 .movie-info span.red {
 	color: red;
+}
+
+.overview {
+	background-color: #fff;
+	max-height: 100%;
+	overflow: auto;
+	position: absolute;
+	padding: 2rem;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transform: translateY(101%);
+	transition: transform 0.3s ease-in;
+}
+
+.overview h4 {
+	margin-top: 0;
+}
+
+.movie:hover .overview {
+	transform: translateY(0);
 }
